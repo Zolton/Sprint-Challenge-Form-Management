@@ -3,26 +3,25 @@ import React, { useState } from "react";
 import { axiosWithAuth } from "../Security/axiosWithAuth";
 import * as Yup from "yup";
 
-const  Login = () => {
+const Login = (props) => {
   return (
     <Form>
-      <Field type="text" name="name" />
-
+      <Field type="text" name="username" />
       <Field type="password" name="password" />
       <button type="submit">Submit</button>
     </Form>
   );
-}
+};
 
 const FormikLoginForm = withFormik({
-  mapPropsToValue({ name, password }) {
+  mapPropsToValue({ username, password }) {
     return {
-      name: name || "",
+      username: username || "",
       password: password || ""
     };
   },
   validationSchema: Yup.object().shape({
-    name: Yup.string()
+    username: Yup.string()
       .min(3, "Minimum 3 char")
       .required("Username is required"),
     password: Yup.string()
@@ -37,6 +36,7 @@ const FormikLoginForm = withFormik({
       axiosWithAuth()
         .post("http://localhost:5000/api/register", values)
         .then(res => {
+            console.log("server successful response below")
           console.log(res);
           //resetForm();
           localStorage.setItem("token", res.data.token);
@@ -53,7 +53,9 @@ const FormikLoginForm = withFormik({
           //       return [storedValue, setValue]
           //   }
         })
-        .catch(error=>console.log(error))
+        .catch(error => {
+            console.log("server failure response below")
+            console.log(error)});
     }
   }
 })(Login);
