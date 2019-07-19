@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import { axiosWithAuth } from "../Security/axiosWithAuth";
 import * as Yup from "yup";
 
-function Login() {
+const  Login = () => {
   return (
     <Form>
       <Field type="text" name="username" />
       <Field type="password" name="password" />
-      <button>Submit</button>
+      <button type="submit">Submit</button>
     </Form>
   );
 }
@@ -37,9 +37,10 @@ const FormikLoginForm = withFormik({
         .post("http://localhost:6000/api/register", values)
         .then(res => {
           console.log(res);
-          resetForm();
+          //resetForm();
           localStorage.setItem("token", res.data.token);
           props.history.push("/recipes");
+          
           //   const useLocal = () => {
           //       const [storedValue, setStoredValue] = useState(()=>{
           //           const item = localStorage.getItem("token")
@@ -51,7 +52,10 @@ const FormikLoginForm = withFormik({
           //       }
           //       return [storedValue, setValue]
           //   }
-        });
+        })
+        .catch(error=>console.log(error))
     }
   }
 })(Login);
+
+export default FormikLoginForm;

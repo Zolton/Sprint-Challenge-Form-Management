@@ -4,8 +4,11 @@ import {
   BrowserRouter as Router,
   Route,
   Redirect,
-  PrivateRoute
 } from "react-router-dom";
+import FormikLoginForm from "./components/UserFiles/Login";
+import Login from "./components/UserFiles/Login";
+import PrivateRoute from "./components/Security/PrivateRoute";
+import Recipes from "./components/UserFiles/Recipes";
 
 function App() {
   return (

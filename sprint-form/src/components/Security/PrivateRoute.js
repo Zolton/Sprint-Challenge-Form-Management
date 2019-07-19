@@ -4,6 +4,9 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
+import Login from "../UserFiles/Login"
+import FormikLoginForm from "../UserFiles/Login"
+import Recipes from "../UserFiles/Recipes"
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
