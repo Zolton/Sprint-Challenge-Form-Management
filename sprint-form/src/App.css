@@ -31,3 +31,50 @@
     transform: rotate(360deg);
   }
 }
+
+input {
+  width: 20%;
+  height: 30px;
+  margin: 20px auto;
+}
+
+h2 {
+  background-color: lightgreen;
+  color: white;
+  width: 30%;
+  margin: 0 auto;
+}
+
+h4 {
+  background-color: lightgoldenrodyellow;
+  color: brown;
+  width: 30%;
+  margin: 10px auto;
+}
+
+h5{
+  background-color: lightseagreen;
+  color: tomato;
+  width: 30%;
+  margin: 10px auto;
+}
+
+h6{
+  max-width: 50%;
+  background-color: lightskyblue;
+  color: white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  font-size: 1.2rem;
+  margin: 20px auto;
+
+}
+
+button {
+  border-radius: 25%;
+  background-color: lightsalmon;
+  color: black;
+  height: 50px;
+  width: 100px;
+}
