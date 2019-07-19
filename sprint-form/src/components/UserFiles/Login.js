@@ -6,7 +6,8 @@ import * as Yup from "yup";
 const  Login = () => {
   return (
     <Form>
-      <Field type="text" name="username" />
+      <Field type="text" name="name" />
+
       <Field type="password" name="password" />
       <button type="submit">Submit</button>
     </Form>
@@ -14,9 +15,9 @@ const  Login = () => {
 }
 
 const FormikLoginForm = withFormik({
-  mapPropsToValue({ username, password }) {
+  mapPropsToValue({ name, password }) {
     return {
-      username: username || "",
+      name: name || "",
       password: password || ""
     };
   },
@@ -34,13 +35,12 @@ const FormikLoginForm = withFormik({
       setErrors({ email: "Try again" });
     } else {
       axiosWithAuth()
-        .post("http://localhost:6000/api/register", values)
+        .post("http://localhost:5000/api/register", values)
         .then(res => {
           console.log(res);
           //resetForm();
           localStorage.setItem("token", res.data.token);
           props.history.push("/recipes");
-          
           //   const useLocal = () => {
           //       const [storedValue, setStoredValue] = useState(()=>{
           //           const item = localStorage.getItem("token")
