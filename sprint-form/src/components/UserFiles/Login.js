@@ -9,9 +9,18 @@ import * as Yup from "yup";
 const Register = props => {
   return (
     <Form>
-      <h2>You aren't registered! You're seeing this because you don't have a token in your local storage</h2>
-      <div><label>Desired Username  </label><Field type="text" name="username" /></div>
-      <div><label>Desired Password  </label><Field type="password" name="password" /></div>
+      <h2>
+        You aren't registered! You're seeing this because you don't have a token
+        in your local storage
+      </h2>
+      <div>
+        <label>Desired Username </label>
+        <Field type="text" name="username" />
+      </div>
+      <div>
+        <label>Desired Password </label>
+        <Field type="password" name="password" />
+      </div>
       <button type="submit">Submit</button>
     </Form>
   );
@@ -21,8 +30,16 @@ const Login = props => {
   return (
     <Form>
       <h2>Please register</h2>
-      <div><label>Username  </label><Field type="text" name="username" /></div>
-      <div><label>Password  </label><Field type="password" name="password" /></div>
+      <div>
+        <label>Username </label>
+        <Field type="text" name="username" />
+      </div>
+
+      <div>
+        <label>Password </label>
+        <Field type="password" name="password" />
+      </div>
+
       <button type="submit">Submit</button>
     </Form>
   );
